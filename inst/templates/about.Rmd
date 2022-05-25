@@ -1,0 +1,44 @@
+---
+title: "About"
+output:
+  workflowr::wflow_html:
+    toc: false
+editor_options:
+  chunk_output_type: console
+---
+
+```{r global-options, echo=FALSE}
+# remove warning messages etc from final report
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+```{r results='hide'}
+library(tidyverse)
+library(targets)
+```
+
+# Setup
+
+1.  Git clone or fork this repository.
+
+2.  Place a `.Renviron` file in the root directory for this project, and complete the following details:
+
+```{r}
+tar_read(RENVIRON) %>% 
+  readLines() %>%  
+  purrr::map_chr(~ stringr::str_replace(string = .x, 
+                                        pattern = "=.*$", 
+                                        replacement = "=")) %>%  
+  stringr::str_c(sep = "", 
+                 collapse = "\n") %>% 
+  cat()
+```
+
+3.  Update the workflowr website URL to match your own gitlab account details in `README.md` and `_site.yml`. Optionally, also rename the `.Rproj` file to something specific to your own dataset.
+
+4.  Install required R packages with `renv::restore()`.
+
+5.  Run targets pipeline with `targets::tar_make()`.

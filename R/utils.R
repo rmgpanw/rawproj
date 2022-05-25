@@ -17,7 +17,7 @@
 #'
 #' # get environmental variables specified by `.Renviron` to a named list
 #' renviron_to_list(path = tempdir())
-renviron_to_list <- function(path,
+renviron_to_list <- function(path = ".",
                              suffix = "_RENV") {
   file_path <- file.path(path, ".Renviron")
 

@@ -4,7 +4,7 @@
 \alias{renviron_to_list}
 \title{Read .Renviron file to list}
 \usage{
-renviron_to_list(path, suffix = "_RENV")
+renviron_to_list(path = ".", suffix = "_RENV")
 }
 \arguments{
 \item{path}{Path to directory containing a \code{.Renviron} file.}

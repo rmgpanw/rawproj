@@ -1,0 +1,38 @@
+Binding: create_rawproj_rstudio
+Title: workflowr and targets project
+Subtitle: RStudio interface to create_rawproj()
+Caption: Start a workflowr/targets project
+OpenFiles: README.md, analysis/index.Rmd, _workflowr.yml, analysis/_site.yml
+
+Parameter: name
+Widget: TextInput
+Label: Project name
+Position: left
+
+Parameter: user.name
+Widget: TextInput
+Label: Git user name
+Position: right
+
+Parameter: user.email
+Widget: TextInput
+Label: Git email address
+Position: right
+
+Parameter: git
+Widget: CheckboxInput
+Label: Use Git for version control
+Default: On
+Position: left
+
+Parameter: existing
+Widget: CheckboxInput
+Label: Directory already exists
+Default: Off
+Position: left
+
+Parameter: overwrite
+Widget: CheckboxInput
+Label: Overwite existing directories and files
+Default: Off
+Position: left

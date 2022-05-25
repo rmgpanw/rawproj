@@ -4,3 +4,12 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^\.github$
+^docs/*$
+^_targets\.R$
+^_targets/*$
+^_workflowr\.yml$
+^analysis/*$
+^code/*$
+^public/*$
+^output/*$
+^_pkg_dependencies\.R$
