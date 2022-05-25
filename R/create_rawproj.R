@@ -119,6 +119,7 @@ create_rawproj_rstudio <- function(directory,
                                 user.name = "",
                                 user.email = "") {
 
+  browser()
   directory_rs <- directory
 
   # Check if name is blank, use NULL if true
