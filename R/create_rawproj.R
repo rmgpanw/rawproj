@@ -34,7 +34,7 @@ create_rawproj <- function(directory,
   on.exit(setwd(current_workdir))
 
   # create workflowr project
-  workflowr::wflow_start(directory,
+  workflowr::wflow_start(directory = directory,
                          name = name,
                          git = git,
                          existing = existing,
@@ -46,8 +46,8 @@ create_rawproj <- function(directory,
                          user.email = user.email)
 
   # use gitlab
-  # workflowr::wflow_use_gitlab(username = user.name,
-  #                             project = directory)
+  workflowr::wflow_use_gitlab(username = user.name,
+                              project = ".")
 
   # adapt workflowr setup - remove unused directories
   c("data",
@@ -65,12 +65,18 @@ create_rawproj <- function(directory,
 
   # copy template files to root dir
   c("_targets.R",
-    "_pkg_dependencies.R",
-    ".Renviron",
-    ".gitlab-ci.yml") %>%
+    "_pkg_dependencies.R") %>%
     purrr::walk( ~ file.copy(
       fs::path_package(package = "rawproj", "templates", .x),
       file.path(directory, .x)
+    ))
+
+  # copy hidden files to root dir
+  c("Renviron",
+    "gitlab-ci.yml") %>%
+    purrr::walk( ~ file.copy(
+      fs::path_package(package = "rawproj", "templates", .x),
+      file.path(directory, paste0(".", .x))
     ))
 
   # copy template files to analysis dir
