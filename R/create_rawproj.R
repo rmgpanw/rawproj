@@ -46,8 +46,8 @@ create_rawproj <- function(directory,
                          user.email = user.email)
 
   # use gitlab
-  workflowr::wflow_use_gitlab(username = user.name,
-                              project = directory)
+  # workflowr::wflow_use_gitlab(username = user.name,
+  #                             project = directory)
 
   # adapt workflowr setup - remove unused directories
   c("data",
@@ -119,7 +119,6 @@ create_rawproj_rstudio <- function(directory,
                                 user.name = "",
                                 user.email = "") {
 
-  browser()
   directory_rs <- directory
 
   # Check if name is blank, use NULL if true
