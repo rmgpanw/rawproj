@@ -65,7 +65,8 @@ create_rawproj <- function(directory,
 
   # copy template files to root dir
   c("_targets.R",
-    "_pkg_dependencies.R") %>%
+    "_pkg_dependencies.R",
+    "_pkgdown.yml") %>%
     purrr::walk( ~ file.copy(
       fs::path_package(package = "rawproj", "templates", .x),
       file.path(directory, .x)
@@ -89,10 +90,6 @@ create_rawproj <- function(directory,
 
   # use test_that
   usethis::use_testthat()
-
-  # use pkgdown
-  usethis::use_pkgdown(config_file = "_pkgdown.yml",
-                       destdir = file.path("public", "pkgdown_site"))
 
   # add to .gitignore
   usethis::use_git_ignore(c("output/*"))
